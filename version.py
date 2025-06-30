@@ -18,4 +18,9 @@ url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = read_csv(url, names=names)
 
-print(dataset.groupby('class').size())
+array = dataset.values
+
+x = array[:, 0:4]
+y = array[:, 4]
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
